@@ -1,3 +1,4 @@
+import logging
 import requests
 from .protocol import BotProtocol
 
@@ -14,7 +15,7 @@ class WeatherBot(BotProtocol):
 
     def get_information(self):
         weather_information = self.weather_requester.get_day_weather()
-        print(f'{self.name} -', weather_information)
+        logging.info(f'{self.name} - {weather_information}')
 
 
 class WeatherRequester:
