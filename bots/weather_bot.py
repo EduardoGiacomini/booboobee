@@ -3,6 +3,9 @@ from .protocol import BotProtocol
 
 
 class WeatherBot(BotProtocol):
+    """
+        WeatherBot: bot responsável por dar informações sobre o tempo, previsão de chuvas e temperatura do dia.
+    """
     def __init__(self, name, api_key, locale):
         super().__init__(name)
         self.api_key = api_key
