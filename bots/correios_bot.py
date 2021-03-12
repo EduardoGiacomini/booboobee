@@ -1,11 +1,13 @@
 import logging
 import requests
+from bs4 import BeautifulSoup
 from .protocol import BotProtocol
+from .utils import TextUtils
 
 
 class CorreiosBot(BotProtocol):
     """
-        CorreiosBot: bot responsável por dar informações sobre uma encomenda que está sendo transportada pelo correios.
+        CorreiosBot: bot responsável por apresentar informações sobre uma encomenda transportada pelo correios.
     """
     def __init__(self, name, code):
         super().__init__(name)
@@ -13,8 +15,8 @@ class CorreiosBot(BotProtocol):
         self.correios_requester = CorreiosRequester(self.code)
 
     def get_information(self):
-        object_tracking = self.correios_requester.get_object_tracking()
-        logging.info(f'{self.name} - {object_tracking}')
+        object_tracking_informations = self.correios_requester.get_object_tracking()
+        logging.info(f'{self.name}:\n{object_tracking_informations}')
 
 
 class CorreiosRequester:
@@ -34,7 +36,7 @@ class CorreiosRequester:
         self.__load_correios_web_site()
         self.__send_object_tracking_form()
         response = self.__get_result_from_object_tracking_form()
-        self.correios_adapter.to_client(response)
+        return self.correios_adapter.to_client(response)
 
     def __load_correios_web_site(self):
         self.session.get(self.correios_home_url)
@@ -54,4 +56,14 @@ class CorreiosRequester:
 class CorreiosAdapter:
     @staticmethod
     def to_client(response):
-        raise NotImplementedError
+        adapted_response = ''
+        html = BeautifulSoup(response.text, 'html.parser')
+        tracked_object_events = html.find_all('table', {'class': 'listEvent sro'})
+        for event in tracked_object_events:
+            event_date = TextUtils.remove_blank_spaces(event.find('td', {'class': 'sroDtEvent'}).text.split('\n')[0])
+            event_hour = TextUtils.remove_blank_spaces(event.find('td', {'class': 'sroDtEvent'}).text.split('\n')[1].strip())
+            event_location = TextUtils.remove_blank_spaces(event.find('td', {'class': 'sroDtEvent'}).text.split('\n')[2].strip())
+            event_description = TextUtils.remove_text_formatters(event.find('td', {'class': 'sroLbEvent'}).text)
+            event_description = TextUtils.remove_blank_spaces(event_description)
+            adapted_response += f'[{event_date} - {event_hour} - {event_location}]: {event_description}\n'
+        return adapted_response

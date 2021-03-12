@@ -1,6 +1,3 @@
-from datetime import datetime
-
-
 class DatetimeUtils:
     @staticmethod
     def to_brazilian_format(date):
