@@ -1,7 +1,7 @@
 import logging
 import requests
 from bs4 import BeautifulSoup
-from .protocol import BotProtocol
+from core.protocol import BotProtocol
 from .utils import TextUtils
 
 

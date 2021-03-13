@@ -1,7 +1,6 @@
 from configuration import Configuration
-from bots import CorreiosBot
+from core import DollarBot
 
 config = Configuration()
-correios_bot = CorreiosBot(name='Correios Bot', code='')
-
-correios_bot.get_information()
+dollar_bot = DollarBot(name='Dólar Bot')
+dollar_bot.get_information()
