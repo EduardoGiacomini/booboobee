@@ -1,1 +1,1 @@
-from .bots import DollarBot, WeatherBot
+from .builders import StandardBotBuilder, PremiumBotBuilder

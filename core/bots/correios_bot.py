@@ -2,7 +2,7 @@ import logging
 import requests
 from bs4 import BeautifulSoup
 from core.protocol import BotProtocol
-from .utils import TextUtils
+from core.utils import TextUtils
 
 
 class CorreiosBot(BotProtocol):

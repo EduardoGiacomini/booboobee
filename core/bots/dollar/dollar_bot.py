@@ -1,5 +1,3 @@
-import logging
-
 from core.protocol import BotProtocol
 from .dollar_requester import DollarRequester
 
@@ -14,4 +12,4 @@ class DollarBot(BotProtocol):
 
     def get_information(self):
         day_dollar_cotation = self.dollar_requester.get_day_dollar_cotation()
-        logging.info(f'{self.name} - {day_dollar_cotation}')
+        return day_dollar_cotation

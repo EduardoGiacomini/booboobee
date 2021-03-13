@@ -1,6 +1,12 @@
-from configuration import Configuration
-from core import DollarBot
+from configuration import configuration
+from core import PremiumBotBuilder
 
-config = Configuration()
-dollar_bot = DollarBot(name='Dólar Bot')
-dollar_bot.get_information()
+
+class Main:
+    @staticmethod
+    def run():
+        premium_bots = PremiumBotBuilder(configuration).build_dollar_bot().build_weather_bot().build()
+        print(premium_bots.get_information())
+
+
+Main.run()

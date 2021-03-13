@@ -1,4 +1,3 @@
-import logging
 from core.protocol import BotProtocol
 from .weather_requester import WeatherRequester
 
@@ -15,4 +14,4 @@ class WeatherBot(BotProtocol):
 
     def get_information(self):
         day_weather = self.weather_requester.get_day_weather()
-        logging.info(f'{self.name} - {day_weather}')
+        return day_weather

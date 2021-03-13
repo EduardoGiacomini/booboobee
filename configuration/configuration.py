@@ -15,3 +15,6 @@ class Configuration:
 
     def __setup_logger(self):
         Logger.setup(self.logger_level)
+
+
+configuration = Configuration()
