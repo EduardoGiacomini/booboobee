@@ -3,12 +3,15 @@ Conjunto de bots utilitários para pequenas tarefas rotineiras.
 
 ## Bots
 
-#### Weather Bot
-O **Weather Bot** é responsável por apresentar informações sobre o clima do dia para uma determinada cidade. O Weather Bot é capaz de lhe apresentar, com precisão, as chances de chuva e temperaturas máxima e mínima.
+### :mailbox: Correios Bot
+O **Correios Bot** é responsável por apresentar informações sobre uma encomenda que está sendo transportada pelo Correios.
 
-#### Dollar Bot
+### :dollar: Dollar Bot
 O **Dollar Bot** é responsável por apresentar a cotação do dólar comercial do dia.
 
+### :partly_sunny: Weather Bot
+O **Weather Bot** é responsável por apresentar informações sobre o clima, as chances de chuva e temperaturas máxima e
+mínima do dia para uma determinada cidade.
 
 ## Como executar?
 Para executar o projeto, confira o tutorial a seguir.
