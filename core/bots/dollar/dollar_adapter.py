@@ -8,5 +8,5 @@ class DollarAdapter:
         formatted_cotation_day = DatetimeUtils.to_brazilian_format(cotation_day)
         cotation_value = response['USD']['high']
         formatted_cotation_value = CurrencyUtils.to_brazilian_format(cotation_value)
-        adapted_response = f'Cotação do dólar comercial do dia {formatted_cotation_day}: R${formatted_cotation_value}.'
+        adapted_response = f'Cotação do dólar comercial do dia {formatted_cotation_day}: R${formatted_cotation_value}.\n'
         return adapted_response

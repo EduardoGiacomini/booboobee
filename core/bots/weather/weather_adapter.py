@@ -9,5 +9,5 @@ class WeatherAdapter:
         rain_precipitation = response['data'][0]['rain']['precipitation']
         adapted_response = f'Previsão do dia {prevision_day}: {weather_resume} Temperatura entre {min_temperature:.0f}°C' \
                            f' e {max_temperature:.0f}°C. Probabilidade de {rain_probability:.0f}% para chuvas de até ' \
-                           f'{rain_precipitation:.0f} mm.'
+                           f'{rain_precipitation:.0f} mm.\n'
         return adapted_response

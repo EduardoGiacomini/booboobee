@@ -11,5 +11,4 @@ class DollarBot(BotProtocol):
         self.dollar_requester = DollarRequester()
 
     def get_information(self):
-        day_dollar_cotation = self.dollar_requester.get_day_dollar_cotation()
-        return day_dollar_cotation
+        return self.dollar_requester.get_day_dollar_cotation()

@@ -11,5 +11,5 @@ class BotGroup(BotCompositeProtocol):
     def get_information(self):
         bot_information = ''
         for bot in self.bots:
-            bot_information += f'{bot.name}: {bot.get_information()}\n'
+            bot_information += f'--- {bot.name} ---\n{bot.get_information()}\n'
         return bot_information

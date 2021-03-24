@@ -13,5 +13,4 @@ class WeatherBot(BotProtocol):
         self.weather_requester = WeatherRequester(self.api_key, self.locale)
 
     def get_information(self):
-        day_weather = self.weather_requester.get_day_weather()
-        return day_weather
+        return self.weather_requester.get_day_weather()
